@@ -21,17 +21,42 @@ let blockchain = [
   { fromUser: "jeff", toUser: "ben", amount: 1750 }
 ]
 
-let brianBalance = blockchain[0].amount - blockchain[1].amount - blockchain[2].amount - blockchain[4].amount + blockchain[5].amount
-let benBalance = blockchain[1].amount - blockchain[3].amount + blockchain[6].amount
-let jeffBalance = blockchain[2].amount + blockchain[3].amount + blockchain[4].amount - blockchain[5].amount - blockchain[6].amount
-
-let getBalance = function(){
-  return brianBalance
-  return benBalance
-  return jeffBalance
+let getBalance = function(username) {
+  let runningTotal = 0;
+  for (let i=0; i<blockchain.length; i++) {
+    let transaction = blockchain[i];
+    if (transaction.fromUser === username) {
+      runningTotal = runningTotal - transaction.amount
+    }
+    if (transaction.toUser === username) {
+      runningTotal = runningTotal + transaction.amount
+    }
+  }
+  return runningTotal;
 }
 
-console.log(getBalance())
+
+console.log("Brian's KelloggCoin balance is " + getBalance("brian"));
+console.log("Ben's KelloggCoin balance is " + getBalance("ben"));
+console.log("Jeff's KelloggCoin balance is " + getBalance("jeff"));
+
+
+
+
+
+
+
+// let brianBalance = blockchain[0].amount - blockchain[1].amount - blockchain[2].amount - blockchain[4].amount + blockchain[5].amount
+// let benBalance = blockchain[1].amount - blockchain[3].amount + blockchain[6].amount
+// let jeffBalance = blockchain[2].amount + blockchain[3].amount + blockchain[4].amount - blockchain[5].amount - blockchain[6].amount
+//
+// let getBalance = function(){
+//   return brianBalance
+//   return benBalance
+//   return jeffBalance
+// }
+//
+// console.log(getBalance())
 
 
 
@@ -48,7 +73,3 @@ console.log(getBalance())
 // Brian's KelloggCoin balance is 8000
 // Ben's KelloggCoin balance is 10350
 // Jeff's KelloggCoin balance is 2650
-
-// console.log("Brian's KelloggCoin balance is " + getBalance("brian"));
-// console.log("Ben's KelloggCoin balance is " + getBalance("ben"));
-// console.log("Jeff's KelloggCoin balance is " + getBalance("jeff"));
