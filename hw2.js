@@ -10,6 +10,7 @@
 // KelloggCoin, that will massively disrupt financial markets at the Global
 // Hub.
 
+
 let blockchain = [
   { fromUser: null, toUser: "brian", amount: 21000 },
   { fromUser: "brian", toUser: "ben", amount: 9000 },
@@ -20,9 +21,23 @@ let blockchain = [
   { fromUser: "jeff", toUser: "ben", amount: 1750 }
 ]
 
+let brianBalance = blockchain[0].amount - blockchain[1].amount - blockchain[2].amount - blockchain[4].amount + blockchain[5].amount
+let benBalance = blockchain[1].amount - blockchain[3].amount + blockchain[6].amount
+let jeffBalance = blockchain[2].amount + blockchain[3].amount + blockchain[4].amount - blockchain[5].amount - blockchain[6].amount
+
+let getBalance = function(){
+  return brianBalance
+  return benBalance
+  return jeffBalance
+}
+
+console.log(getBalance())
+
+
+
 // Write a function that, when given a username (i.e. brian, ben, or jeff),
 // returns the number of KelloggCoin that user has in their KelloggCoin "wallet".
-
+//
 // HINT! You will have to use all the JavaScript programming fundamentals we've
 // learned about so far, i.e. variables, arrays, objects, conditionals, loops,
 // and functions, to complete this task. There are ways to do this using some
@@ -34,6 +49,6 @@ let blockchain = [
 // Ben's KelloggCoin balance is 10350
 // Jeff's KelloggCoin balance is 2650
 
-console.log("Brian's KelloggCoin balance is " + getBalance("brian"));
-console.log("Ben's KelloggCoin balance is " + getBalance("ben"));
-console.log("Jeff's KelloggCoin balance is " + getBalance("jeff"));
+// console.log("Brian's KelloggCoin balance is " + getBalance("brian"));
+// console.log("Ben's KelloggCoin balance is " + getBalance("ben"));
+// console.log("Jeff's KelloggCoin balance is " + getBalance("jeff"));
